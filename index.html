@@ -3,260 +3,475 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vinoth MP | Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<!-- AOS Animation -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+<title>Vinoth MP — AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+  :root {
+    --bg:        #0e0f11;
+    --surface:   #15171a;
+    --border:    #252830;
+    --muted:     #5a5f6e;
+    --body:      #b4b8c4;
+    --heading:   #eceef2;
+    --accent:    #4ade80;
+    --accent-dim:#1a3627;
+  }
 
-html {
-    scroll-behavior: smooth;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-    background: #0f172a;
-    color: white;
-}
+  html { scroll-behavior: smooth; }
 
-.container {
-    padding: 40px;
-    max-width: 1100px;
-    margin: auto;
-}
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* HEADER */
-.header {
-    text-align: center;
-    margin-bottom: 60px;
-}
+  a { color: inherit; text-decoration: none; }
 
-.header h1 {
-    font-size: 42px;
-    background: linear-gradient(90deg, #00f5a0, #00d9f5);
-    -webkit-background-clip: text;
-    color: transparent;
-}
+  /* ── Layout ── */
+  .wrapper {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-#typing {
-    color: #94a3b8;
-    margin-top: 10px;
-}
+  section { padding: 72px 0; border-top: 1px solid var(--border); }
+  section:first-of-type { border-top: none; }
 
-/* BUTTON */
-.btn {
+  /* ── Fade-in ── */
+  .fade {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade.visible { opacity: 1; transform: none; }
+
+  /* ── Header ── */
+  header {
+    padding: 96px 0 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  header .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 7vw, 58px);
+    color: var(--heading);
+    line-height: 1.1;
+    font-weight: 400;
+  }
+
+  header .role {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 4px;
+  }
+
+  .btn-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     margin-top: 20px;
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 25px;
-    background: linear-gradient(90deg, #00f5a0, #00d9f5);
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
+    padding: 10px 22px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--heading);
+    background: var(--surface);
+    transition: border-color 0.2s, color 0.2s;
+    width: fit-content;
+  }
+  .btn-resume:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-resume svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
 
-.btn:hover {
-    transform: scale(1.05);
-}
+  /* ── Section headings ── */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
 
-/* SECTION */
-.section {
-    margin-bottom: 50px;
-}
+  /* ── About ── */
+  .about-text {
+    color: var(--body);
+    font-size: 16px;
+    line-height: 1.85;
+    max-width: 640px;
+  }
 
-.section h2 {
-    border-left: 5px solid #00f5a0;
-    padding-left: 10px;
-    margin-bottom: 20px;
-}
+  /* ── Experience ── */
+  .exp-list { display: flex; flex-direction: column; gap: 28px; }
 
-/* PROJECT GRID */
-.projects {
+  .exp-item {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
+    grid-template-columns: 140px 1fr;
+    gap: 0 28px;
+  }
 
-/* CARD */
-.card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 15px;
-    transition: 0.4s;
-}
+  .exp-meta {
+    padding-top: 3px;
+  }
 
-.card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 0 25px rgba(0, 245, 160, 0.5);
-}
+  .exp-date {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1.5;
+  }
 
-/* SKILLS */
-.skills span {
-    background: #1e293b;
-    padding: 8px 15px;
-    margin: 5px;
-    display: inline-block;
-    border-radius: 20px;
-    transition: 0.3s;
-}
+  .exp-org {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 4px;
+  }
 
-.skills span:hover {
-    transform: scale(1.1);
-    background: #00f5a0;
-    color: black;
-}
+  .exp-body h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--heading);
+    margin-bottom: 6px;
+  }
 
-/* FOOTER */
-.footer {
+  .exp-body p {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.7;
+  }
+
+  /* ── Projects ── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: pointer;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .project-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .project-card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--heading);
+    letter-spacing: 0.01em;
+  }
+
+  .project-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .arrow-icon {
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .project-card:hover .arrow-icon {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  /* ── Skills ── */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-tag {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 13px;
+    color: var(--body);
+    background: var(--surface);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── Contact ── */
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+  }
+
+  .contact-row .label {
+    width: 68px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .contact-row a {
+    color: var(--body);
+    transition: color 0.2s;
+  }
+  .contact-row a:hover { color: var(--accent); }
+
+  /* ── Footer ── */
+  footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
     text-align: center;
-    margin-top: 40px;
-    color: #64748b;
-}
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 580px) {
+    .exp-item { grid-template-columns: 1fr; gap: 4px 0; }
+    .exp-meta { display: flex; gap: 12px; margin-bottom: 6px; }
+    .project-grid { grid-template-columns: 1fr; }
+    header { padding: 64px 0 48px; }
+  }
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-<!-- HEADER -->
-<div class="header" data-aos="fade-down">
+  <!-- HEADER -->
+  <header class="fade">
+    <span class="eyebrow">Portfolio</span>
     <h1>Vinoth MP</h1>
-    <p id="typing"></p>
-    <a href="resume.pdf" class="btn">Download Resume</a>
-</div>
+    <p class="role">AI/ML Engineer &nbsp;·&nbsp; Data Science Intern &nbsp;·&nbsp; Software Developer</p>
+    <a href="resume.pdf" class="btn-resume">
+      <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download Resume
+    </a>
+  </header>
 
-<!-- SUMMARY -->
-<div class="section" data-aos="fade-up">
-    <h2>🧠 Summary</h2>
-    <p>
-        AI & ML undergraduate with hands-on experience in machine learning, data preprocessing, predictive analytics,
-        and real-world AI project development. Skilled in Python, SQL, JavaScript, and model evaluation with strong
-        experience in building intelligent systems for optimization, forecasting, and automation.
+  <!-- ABOUT -->
+  <section class="fade">
+    <p class="section-label">About</p>
+    <p class="about-text">
+      AI &amp; ML undergraduate with hands-on experience in machine learning, data preprocessing,
+      predictive analytics, and real-world AI project development. Skilled in Python, SQL, and JavaScript
+      with a track record of building intelligent systems for optimization, forecasting, and automation.
     </p>
-</div>
+  </section>
 
-<!-- EXPERIENCE -->
-<div class="section" data-aos="fade-right">
-    <h2>💼 Experience</h2>
+  <!-- EXPERIENCE -->
+  <section class="fade">
+    <p class="section-label">Experience</p>
+    <div class="exp-list">
 
-    <div class="card">
-        <h3>Machine Learning Intern - Re-tech</h3>
-        <p><b>Jul 2024 – Aug 2024</b></p>
-        <p>Built 5 end-to-end ML models including churn prediction, time-series forecasting, and object detection.
-           Improved model accuracy using feature selection and hyperparameter tuning.</p>
-    </div>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Jul – Aug 2024</div>
+          <div class="exp-org">Re-tech</div>
+        </div>
+        <div class="exp-body">
+          <h3>Machine Learning Intern</h3>
+          <p>Built 5 end-to-end ML models including churn prediction, time-series forecasting, and object detection. Improved model accuracy through feature selection and hyperparameter tuning.</p>
+        </div>
+      </div>
 
-    <div class="card">
-        <h3>Data Science Trainee - CIRF</h3>
-        <p><b>June 2024 – Jul 2024</b></p>
-        <p>Performed data cleaning and preprocessing to ensure high-quality analysis.</p>
-    </div>
-</div>
-
-<!-- PROJECTS -->
-<div class="section" data-aos="zoom-in">
-    <h2>🚀 Projects</h2>
-
-    <div class="projects">
-
-        <a href="https://github.com/vinothmp21102005/KSSEM-HIO25-065-athlentiq" target="_blank">
-            <div class="card">
-                <h3>ATHLENTIQ</h3>
-                <p>AI-powered sports performance analysis app.</p>
-            </div>
-        </a>
-
-        <a href="https://github.com/vinothmp21102005/marine-matrix" target="_blank">
-            <div class="card">
-                <h3>ECO-NAV</h3>
-                <p>AI-based maritime route optimization.</p>
-            </div>
-        </a>
-
-        <a href="https://github.com/vinothmp21102005/nyayasetu" target="_blank">
-            <div class="card">
-                <h3>NyayaSetu</h3>
-                <p>Offline legal guidance platform.</p>
-            </div>
-        </a>
-
-        <a href="https://github.com/sanjitp-23/AMITY-78-SUSTAIN-AI-THON" target="_blank">
-            <div class="card">
-                <h3>ROUTENIZZ</h3>
-                <p>Smart route optimization system.</p>
-            </div>
-        </a>
-
-        <a href="https://github.com/vinothmp21102005/Floodguard" target="_blank">
-            <div class="card">
-                <h3>FLOODGUARD</h3>
-                <p>Flood prediction using ML.</p>
-            </div>
-        </a>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Jun – Jul 2024</div>
+          <div class="exp-org">CIRF</div>
+        </div>
+        <div class="exp-body">
+          <h3>Data Science Trainee</h3>
+          <p>Performed data cleaning and preprocessing pipelines to ensure high-quality, analysis-ready datasets.</p>
+        </div>
+      </div>
 
     </div>
-</div>
+  </section>
 
-<!-- SKILLS -->
-<div class="section" data-aos="fade-left">
-    <h2>💡 Skills</h2>
-    <div class="skills">
-        <span>Python</span>
-        <span>C</span>
-        <span>JavaScript</span>
-        <span>Machine Learning</span>
-        <span>Predictive Analytics</span>
-        <span>SQL</span>
-        <span>MongoDB</span>
-        <span>Firebase</span>
-        <span>Git</span>
-        <span>VS Code</span>
-        <span>Figma</span>
-        <span>Postman</span>
+  <!-- PROJECTS -->
+  <section class="fade">
+    <p class="section-label">Projects</p>
+    <div class="project-grid">
+
+      <a href="https://github.com/vinothmp21102005/KSSEM-HIO25-065-athlentiq" target="_blank" rel="noopener">
+        <div class="project-card">
+          <div class="project-card-top">
+            <h3>Athlentiq</h3>
+            <svg class="arrow-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+          <p>AI-powered sports performance analysis application.</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/vinothmp21102005/marine-matrix" target="_blank" rel="noopener">
+        <div class="project-card">
+          <div class="project-card-top">
+            <h3>Eco-Nav</h3>
+            <svg class="arrow-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+          <p>AI-based maritime route optimization for sustainable shipping.</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/vinothmp21102005/nyayasetu" target="_blank" rel="noopener">
+        <div class="project-card">
+          <div class="project-card-top">
+            <h3>NyayaSetu</h3>
+            <svg class="arrow-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+          <p>Offline-first legal guidance platform for rural accessibility.</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/sanjitp-23/AMITY-78-SUSTAIN-AI-THON" target="_blank" rel="noopener">
+        <div class="project-card">
+          <div class="project-card-top">
+            <h3>Routenizz</h3>
+            <svg class="arrow-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+          <p>Smart route optimization system for logistics efficiency.</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/vinothmp21102005/Floodguard" target="_blank" rel="noopener">
+        <div class="project-card">
+          <div class="project-card-top">
+            <h3>FloodGuard</h3>
+            <svg class="arrow-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+            </svg>
+          </div>
+          <p>ML-based flood prediction and early warning system.</p>
+        </div>
+      </a>
+
     </div>
-</div>
+  </section>
 
-<!-- CONTACT -->
-<div class="section" data-aos="fade-up">
-    <h2>📬 Contact</h2>
-    <p>Email: mpvinoth2180@gmail.com</p>
-    <p>Phone: 9840530752</p>
-    <p>GitHub: https://github.com/vinothmp21102005</p>
-    <p>LinkedIn: https://linkedin.com/in/vinoth-m-p-27451b283</p>
-</div>
+  <!-- SKILLS -->
+  <section class="fade">
+    <p class="section-label">Skills &amp; Tools</p>
+    <div class="skills-grid">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">C</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">Machine Learning</span>
+      <span class="skill-tag">Predictive Analytics</span>
+      <span class="skill-tag">SQL</span>
+      <span class="skill-tag">MongoDB</span>
+      <span class="skill-tag">Firebase</span>
+      <span class="skill-tag">Git</span>
+      <span class="skill-tag">VS Code</span>
+      <span class="skill-tag">Figma</span>
+      <span class="skill-tag">Postman</span>
+    </div>
+  </section>
 
-<div class="footer">
+  <!-- CONTACT -->
+  <section class="fade">
+    <p class="section-label">Contact</p>
+    <div class="contact-grid">
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <a href="mailto:mpvinoth2180@gmail.com">mpvinoth2180@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="label">Phone</span>
+        <span>+91 98405 30752</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">GitHub</span>
+        <a href="https://github.com/vinothmp21102005" target="_blank" rel="noopener">github.com/vinothmp21102005</a>
+      </div>
+      <div class="contact-row">
+        <span class="label">LinkedIn</span>
+        <a href="https://linkedin.com/in/vinoth-m-p-27451b283" target="_blank" rel="noopener">linkedin.com/in/vinoth-m-p-27451b283</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
     <p>© 2026 Vinoth MP</p>
-</div>
+  </footer>
 
 </div>
 
-<!-- AOS Script -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init({ duration: 1000, once: true });
-
-// Typing Effect
-const text = "AI/ML Engineer | Data Science Intern | Software Developer";
-let i = 0;
-function typeEffect() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 40);
-    }
-}
-typeEffect();
+  const fades = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  fades.forEach(el => observer.observe(el));
 </script>
 
 </body>
