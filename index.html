@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinoth MP | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+}
+
+.container {
+    padding: 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.header h1 {
+    font-size: 42px;
+    background: linear-gradient(90deg, #00f5a0, #00d9f5);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#typing {
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #00f5a0, #00d9f5);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* SECTION */
+.section {
+    margin-bottom: 50px;
+}
+
+.section h2 {
+    border-left: 5px solid #00f5a0;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+/* PROJECT GRID */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 25px rgba(0, 245, 160, 0.5);
+}
+
+/* SKILLS */
+.skills span {
+    background: #1e293b;
+    padding: 8px 15px;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    transform: scale(1.1);
+    background: #00f5a0;
+    color: black;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header" data-aos="fade-down">
+    <h1>Vinoth MP</h1>
+    <p id="typing"></p>
+    <a href="resume.pdf" class="btn">Download Resume</a>
+</div>
+
+<!-- SUMMARY -->
+<div class="section" data-aos="fade-up">
+    <h2>🧠 Summary</h2>
+    <p>
+        AI & ML undergraduate with hands-on experience in machine learning, data preprocessing, predictive analytics,
+        and real-world AI project development. Skilled in Python, SQL, JavaScript, and model evaluation with strong
+        experience in building intelligent systems for optimization, forecasting, and automation.
+    </p>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section" data-aos="fade-right">
+    <h2>💼 Experience</h2>
+
+    <div class="card">
+        <h3>Machine Learning Intern - Re-tech</h3>
+        <p><b>Jul 2024 – Aug 2024</b></p>
+        <p>Built 5 end-to-end ML models including churn prediction, time-series forecasting, and object detection.
+           Improved model accuracy using feature selection and hyperparameter tuning.</p>
+    </div>
+
+    <div class="card">
+        <h3>Data Science Trainee - CIRF</h3>
+        <p><b>June 2024 – Jul 2024</b></p>
+        <p>Performed data cleaning and preprocessing to ensure high-quality analysis.</p>
+    </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section" data-aos="zoom-in">
+    <h2>🚀 Projects</h2>
+
+    <div class="projects">
+
+        <a href="https://github.com/vinothmp21102005/KSSEM-HIO25-065-athlentiq" target="_blank">
+            <div class="card">
+                <h3>ATHLENTIQ</h3>
+                <p>AI-powered sports performance analysis app.</p>
+            </div>
+        </a>
+
+        <a href="https://github.com/vinothmp21102005/marine-matrix" target="_blank">
+            <div class="card">
+                <h3>ECO-NAV</h3>
+                <p>AI-based maritime route optimization.</p>
+            </div>
+        </a>
+
+        <a href="https://github.com/vinothmp21102005/nyayasetu" target="_blank">
+            <div class="card">
+                <h3>NyayaSetu</h3>
+                <p>Offline legal guidance platform.</p>
+            </div>
+        </a>
+
+        <a href="https://github.com/sanjitp-23/AMITY-78-SUSTAIN-AI-THON" target="_blank">
+            <div class="card">
+                <h3>ROUTENIZZ</h3>
+                <p>Smart route optimization system.</p>
+            </div>
+        </a>
+
+        <a href="https://github.com/vinothmp21102005/Floodguard" target="_blank">
+            <div class="card">
+                <h3>FLOODGUARD</h3>
+                <p>Flood prediction using ML.</p>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section" data-aos="fade-left">
+    <h2>💡 Skills</h2>
+    <div class="skills">
+        <span>Python</span>
+        <span>C</span>
+        <span>JavaScript</span>
+        <span>Machine Learning</span>
+        <span>Predictive Analytics</span>
+        <span>SQL</span>
+        <span>MongoDB</span>
+        <span>Firebase</span>
+        <span>Git</span>
+        <span>VS Code</span>
+        <span>Figma</span>
+        <span>Postman</span>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section" data-aos="fade-up">
+    <h2>📬 Contact</h2>
+    <p>Email: mpvinoth2180@gmail.com</p>
+    <p>Phone: 9840530752</p>
+    <p>GitHub: https://github.com/vinothmp21102005</p>
+    <p>LinkedIn: https://linkedin.com/in/vinoth-m-p-27451b283</p>
+</div>
+
+<div class="footer">
+    <p>© 2026 Vinoth MP</p>
+</div>
+
+</div>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init({ duration: 1000, once: true });
+
+// Typing Effect
+const text = "AI/ML Engineer | Data Science Intern | Software Developer";
+let i = 0;
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 40);
+    }
+}
+typeEffect();
+</script>
+
+</body>
+</html>
